@@ -2,6 +2,8 @@
 
 import { writeViewLogin } from './views/view-login';
 import { writeViewChat } from './views/view-chat';
+import { mapNodes } from './declarations';
+import { utilityGetNode, utilityGenerateRandomID, utilitySaveMessage } from './utilities';
 
 export function handlerOnClickLogout() {
   localStorage.removeItem('email');
@@ -33,4 +35,25 @@ export function handlerOnClickSignIn(email: string, password: string) {
     localStorage.setItem('users', JSON.stringify(newUsers));
     writeViewChat(email);
   }
+}
+
+export function handlerOnClickSend(email: string) {
+  const nodeInput = utilityGetNode(mapNodes.inputMessage) as HTMLInputElement;
+  const message = nodeInput.value;
+  utilitySaveMessage({
+    content: message,
+    author: email,
+    ref: '',
+    date: new Date(),
+    id: utilityGenerateRandomID(),
+  });
+  const nodeMessageList = utilityGetNode(mapNodes.messageList);
+  nodeMessageList.innerHTML = `
+    ${nodeMessageList.innerHTML}
+    <div>
+      <p>${message}</p>
+      <span>${email}</span>
+    </div> `;
+
+  nodeInput.value = '';
 }
