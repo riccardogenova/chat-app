@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|css)\" --write",
     "start": "npm run build && webpack serve",
     "build": "webpack"
   },
