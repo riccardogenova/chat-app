@@ -1,16 +1,24 @@
 /** @format */
 
-import { writeViewLogin } from './views/view-login';
-import { writeViewChat } from './views/view-chat';
 import { mapNodes } from './declarations';
-import { utilityGetNode, utilityGenerateRandomID, utilitySaveMessage } from './utilities';
+import { utilityGetNode } from './utilities/dom/getNode';
+import { utilityGenerateRandomID } from './utilities/messages/generateRandomID';
+import { utilitySaveMessage } from './utilities/messages/saveMessage';
+import { utilityGetEmailLogged } from './utilities/user/getEmailLogged';
+import { renderViewChat } from './views/view-chat';
+import { renderViewLogin } from './views/view-login';
 
 export function handlerOnClickLogout() {
   localStorage.removeItem('email');
-  writeViewLogin();
+  renderViewLogin();
 }
 
-export function handlerOnClickSignIn(email: string, password: string) {
+export function handlerOnClickSignIn() {
+  const nodeEmail = utilityGetNode(mapNodes.inputEmail) as HTMLInputElement;
+  const nodePassword = utilityGetNode(mapNodes.inputPassword) as HTMLInputElement;
+  const email = nodeEmail.value;
+  const password = nodePassword.value;
+
   localStorage.setItem('email', email);
   const cachedUsers = localStorage.getItem('users');
   let users: Array<{ email: string; password: string }> = [];
@@ -22,24 +30,25 @@ export function handlerOnClickSignIn(email: string, password: string) {
       return false;
     });
     if (!!userFound) {
-      if (userFound.password === password) writeViewChat(email);
+      if (userFound.password === password) renderViewChat();
       else alert('wrong password');
     } else {
       users = JSON.parse(cachedUsers);
       const newUsers = [...users, { email, password }];
       localStorage.setItem('users', JSON.stringify(newUsers));
-      writeViewChat(email);
+      renderViewChat();
     }
   } else {
     const newUsers = [{ email, password }];
     localStorage.setItem('users', JSON.stringify(newUsers));
-    writeViewChat(email);
+    renderViewChat();
   }
 }
 
-export function handlerOnClickSend(email: string) {
+export function handlerOnClickSend() {
   const nodeInput = utilityGetNode(mapNodes.inputMessage) as HTMLInputElement;
   const message = nodeInput.value;
+  const email = utilityGetEmailLogged();
   utilitySaveMessage({
     content: message,
     author: email,
