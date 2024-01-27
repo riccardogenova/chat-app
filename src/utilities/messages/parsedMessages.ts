@@ -1,10 +1,12 @@
+import { styleMessagesClass } from '../../style';
+
 export function utilityParsedMessages(messages: Array<{ content: string; author: string }>) {
   const parsedMessages = messages
     .map(
-      message => `
-      <div>
+      (message, i) => `
+      <div class= '${styleMessagesClass(i)}'>
+         <span>${message.author}</span>
         <p>${message.content}</p>
-        <span>${message.author}</span>
       </div>`,
     )
     .join('');
