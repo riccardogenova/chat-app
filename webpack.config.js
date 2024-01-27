@@ -20,6 +20,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'], // Aggiungi questa regola
+      },
       // Puoi aggiungere altri loader qui per CSS, SASS, ecc.
     ],
   },
