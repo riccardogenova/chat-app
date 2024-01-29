@@ -59,9 +59,9 @@ export function handlerOnClickSend() {
   const nodeMessageList = utilityGetNode(mapNodes.messageList);
   nodeMessageList.innerHTML = `
     ${nodeMessageList.innerHTML}
-    <div>
-      <p>${message}</p>
-      <span>${email}</span>
+    <div id=message-container class=right-message-container>
+      <p class=right-message-content>${message}</p>
+      <span class=my-username>${email}</span>
     </div> `;
 
   nodeInput.value = '';

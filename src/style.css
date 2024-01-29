@@ -1,0 +1,134 @@
+body {
+    background-color: #c3bbbb;
+    font-family: system-ui;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 97vh;
+}
+
+#input-email,
+#input-password {
+    width: 315px;
+    height: 25px;
+}
+
+#btn-signin,
+#btn-logout,
+#btn-send {
+    width: 115px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+#btn-signin {
+    background-color: #6ce16c;
+    border: 1px solid green;
+}
+
+#btn-logout {
+    background-color: #f71414;
+    border: 1px solid red;
+}
+
+#chat-container {
+    width: 90%;
+    margin: auto;
+}
+
+#btn-container {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nickname-container {
+    width: auto;
+    background-color: #6ce16c;
+    height: 30px;
+    border-radius: 20px;
+    padding: 3px 5px;
+}
+
+#message-list {
+    height: 540px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.left-message-container {
+    display: flex;
+    margin-right: auto;
+    width: 240px;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-self: flex-end;
+}
+
+
+.right-message-container{
+    display: flex;
+    margin-left: auto;
+    width: 240px;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-self: flex-end;
+}
+
+.right-message-content,
+.left-message-content {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.right-message-content {
+    background-color: #6ce16c;
+}
+
+.left-message-content {
+    background-color: #ffe7e7;
+}
+
+.my-username {
+    margin-left: auto;
+}
+
+.input-bar {
+    width: 100%;
+    display: flex;
+}
+
+#input-message {
+    width: 85%;
+    margin: auto;
+    height: 25px;
+    border-radius: 20px;
+    border: transparent;
+}
+
+#btn-send {
+    width: 105px;
+    height: 30px;
+    background-color: #6ce16c;
+    border: 1px solid green;
+    border-radius: 20px;
+}
