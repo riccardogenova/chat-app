@@ -5,13 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts', // Assicurati che il punto di ingresso sia il tuo file TypeScript principale
+
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'js/bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.js'], // Aggiungi '.ts' per gestire i file TypeScript
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
@@ -20,7 +21,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      // Puoi aggiungere altri loader qui per CSS, SASS, ecc.
+      {
+        test: /\.css$/, // Aggiungi questa regola per i file CSS
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
@@ -35,3 +39,5 @@ module.exports = {
     port: 3000,
   },
 };
+
+

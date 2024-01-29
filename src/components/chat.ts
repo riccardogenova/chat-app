@@ -7,8 +7,10 @@ export function componentChat() {
   const messages = utilityGetMessages();
 
   return `
-    <button id=${mapNodes.buttonLogout}>Logout ${email}</button>
-    <div id=${mapNodes.messageList}>${messages || 'Non ci sono messaggi'}</div>
-    <input id=${mapNodes.inputMessage} type="text" placeholder='Scrivi un messaggio' />  
-    <button id=${mapNodes.buttonSend} >Send</button>`;
+    <button id=${mapNodes.buttonLogout} class= "btnLogout">Logout ${email}</button>
+    <div id=${mapNodes.messageList} class= "msgBox">${messages || 'Non ci sono messaggi'}</div>
+    <input id=${mapNodes.inputMessage} type="text" class= "inputText" placeholder='Scrivi un messaggio' />  
+    <button id=${mapNodes.buttonSend} class= "btnSend" >Send</button>`;
 }
+
+import '../css/style.css';
