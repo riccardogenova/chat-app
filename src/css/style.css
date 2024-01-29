@@ -1,0 +1,89 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    background-color: beige;
+}
+
+#root{
+    background-color: rgb(80, 205, 80);
+    position: relative;
+    width: 600px;
+    height: 600px;
+    left: 25%;
+    top: 100px;
+    border-radius: 20px;
+}
+
+#loginBox {
+   
+}
+
+.inputLogin {
+    margin-left: 200px;
+    margin-top: 10px;
+    position: relative;
+    top: 200px;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    
+
+}
+
+.btnLogin{
+    
+    margin-left: 200px;
+    margin-top: 220px;
+    border-radius: 20px;
+    height: 30px;
+    
+    
+
+
+    
+}
+
+.btnLogout{
+    margin-left: 500px;
+    margin-top: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: beige;
+    
+
+}
+
+.msgBox{
+    position: relative;
+    left: 190px;
+    top: 100px;
+    width: 400px;
+    height: 350px;
+    overflow-y: scroll;
+    
+    
+
+}
+
+.inputText{
+    position: absolute;
+    left: 50px;
+    top: 530px;
+    height: 30px;
+    width:400px ;
+    border-radius: 20px;
+    background-color: beige;
+
+}
+
+.btnSend{
+    height: 30px;
+    width: 80px;
+    position: absolute;
+    left:480px;
+    top: 530px;
+    border-radius: 20px;
+    background-color: beige;
+
+}
