@@ -2,6 +2,7 @@ import { mapNodes } from '../declarations';
 
 export function componentFormLogin() {
   return `
+    <div id=form>
     <div>
       <input type="text" id=${mapNodes.inputEmail} placeholder="email" />
     </div>
@@ -10,6 +11,7 @@ export function componentFormLogin() {
     </div>
     <div>
       <button id=${mapNodes.buttonSignIn}>SignIn</button>
+    </div>
     </div>
   `;
 }

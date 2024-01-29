@@ -1,4 +1,5 @@
 /** @format */
+import './style.css';
 
 import { utilityGetEmailLogged } from './utilities/user/getEmailLogged';
 import { renderViewChat } from './views/view-chat';
