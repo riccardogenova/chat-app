@@ -20,8 +20,13 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+
+      }
       // Puoi aggiungere altri loader qui per CSS, SASS, ecc.
-    ],
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
