@@ -4,6 +4,7 @@ import { mapNodes } from './declarations';
 import { utilityGetNode } from './utilities/dom/getNode';
 import { utilityGenerateRandomID } from './utilities/messages/generateRandomID';
 import { utilitySaveMessage } from './utilities/messages/saveMessage';
+import { utilityWriteMessage } from './utilities/messages/writeMessage';
 import { utilityGetEmailLogged } from './utilities/user/getEmailLogged';
 import { renderViewChat } from './views/view-chat';
 import { renderViewLogin } from './views/view-login';
@@ -49,20 +50,20 @@ export function handlerOnClickSend() {
   const nodeInput = utilityGetNode(mapNodes.inputMessage) as HTMLInputElement;
   const message = nodeInput.value;
   const email = utilityGetEmailLogged();
-  utilitySaveMessage({
+  const idMessage = utilityGenerateRandomID();
+  const newMessage = {
     content: message,
     author: email,
     ref: '',
     date: new Date(),
-    id: utilityGenerateRandomID(),
-  });
+    id: idMessage,
+  };
+  utilitySaveMessage(newMessage);
   const nodeMessageList = utilityGetNode(mapNodes.messageList);
+  const nodeNewMessage = utilityWriteMessage(newMessage, email);
   nodeMessageList.innerHTML = `
-    ${nodeMessageList.innerHTML}
-    <div>
-      <p>${message}</p>
-      <span>${email}</span>
-    </div> `;
+  ${nodeMessageList.innerHTML}
+   ${nodeNewMessage}`;
 
   nodeInput.value = '';
 }
