@@ -1,10 +1,23 @@
 /** @format */
 
-import { utilityGetEmailLogged } from './utilities/user/getEmailLogged';
-import { renderViewChat } from './views/view-chat';
-import { renderViewLogin } from './views/view-login';
+import { CreateDiscordApp } from './Model';
+import {
+  utilityGetInitialRooms,
+  utilityGetInitialOnlineUsers,
+  utilityGetInitialUserLogged,
+  utilityGetInitialUsers,
+} from './utils';
+
+const rooms = utilityGetInitialRooms();
+const onlineUsers = utilityGetInitialOnlineUsers();
+const userLogged = utilityGetInitialUserLogged();
+const users = utilityGetInitialUsers();
+
+export const App = new CreateDiscordApp({ rooms, onlineUsers, userLogged, users });
+
+// @ts-ignore
+window.app = App;
 
 window.onload = () => {
-  const email = utilityGetEmailLogged();
-  !!email ? renderViewChat() : renderViewLogin();
+  document.body.innerHTML = `<div>Welcome to Chat App</div>`;
 };
